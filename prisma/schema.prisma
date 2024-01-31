@@ -16,12 +16,18 @@ model Reports {
   createdAt DateTime @default(now()) 
   updatedAt DateTime @updatedAt
 
+  report_name String
   author User @relation(fields: [author_id], references: [id])
   author_id String @db.ObjectId
   category Category @relation(fields: [category_id], references: [id])
   category_id String @db.ObjectId
   progress Progress @relation(fields: [progress_id], references: [id])
   progress_id String @db.ObjectId
+  image String?
+  description String
+  location String
+  uploaded String
+  response Response[]
 }
 
 model User {
@@ -40,6 +46,13 @@ model User {
   @@map("users") 
 }
 
+model Response{
+  id  String  @id @default(auto()) @map("_id") @db.ObjectId
+  description String
+  user_id String @db.ObjectId
+  report Reports @relation(fields: [report_id], references: [id])
+  report_id String @db.ObjectId
+}
 model Category {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   category_name String @unique
@@ -50,5 +63,5 @@ model Category {
 model Progress{
   id String @id @default(auto()) @map("_id") @db.ObjectId
   progress_name String @unique
-  Report Reports[]
+  report Reports[]
 }

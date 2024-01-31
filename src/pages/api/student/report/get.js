@@ -7,14 +7,27 @@ const prisma = new PrismaClient();
 const handler = async (req, res) => {
   try {
     // Handler untuk mendapatkan data kategori
-    const progress = await prisma.progress.findMany({
+    const reports = await prisma.reports.findMany({
       select: {
         id: true,
-        progress_name: true,
-        report: true,
+        image: true,
+        report_name: true,
+        description: true,
+        location: true,
+        uploaded: true,
+        category: true,
+        progress: true,
+        author: {
+          select: {
+            id: true,
+            username: true,
+            profileImage: true,
+          },
+        },
+        response: true,
       },
     });
-    res.status(200).json({ progress });
+    res.status(200).json({ reports });
   } catch (error) {
     console.error("Error in progress/get endpoint:", error);
     res.status(500).json({ error: "Internal Server Error" });
