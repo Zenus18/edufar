@@ -8,7 +8,9 @@ export default async function handler(req, res) {
   }
 
   const { username, password } = req.body;
-
+  if (!(username && password)) {
+    res.status(403).json({ message: "Invalid username or password" });
+  }
   const user = await prisma.user.findUnique({
     where: { username },
   });
@@ -19,5 +21,7 @@ export default async function handler(req, res) {
 
   const token = generateToken(user.id);
 
-  res.status(200).json({ "access-token": token, "token-type": "Bearer" });
+  res
+    .status(200)
+    .json({ access_token: token, token_type: "Bearer", role: user.role });
 }

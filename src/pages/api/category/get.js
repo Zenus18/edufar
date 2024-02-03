@@ -8,7 +8,10 @@ const handler = async (req, res) => {
   try {
     // Handler untuk mendapatkan data kategori
     const categories = await prisma.category.findMany();
-    res.status(200).json({ categories });
+    res.status(200).json({
+      message: "success",
+      data: categories,
+    });
   } catch (error) {
     console.error("Error in category/get endpoint:", error);
     res.status(500).json({ error: "Internal Server Error" });

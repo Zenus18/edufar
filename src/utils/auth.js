@@ -1,5 +1,6 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import Api from "./api";
 
 const secret =
   "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcwNjU0MTI5NywiaWF0IjoxNzA2NTQxMjk3fQ.HE2AEybgkJXp8IRmg7uiNn63LL8URxNQ438oPd_y65E"; // Ganti dengan kunci rahasia yang aman
