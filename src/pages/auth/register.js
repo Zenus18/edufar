@@ -11,9 +11,9 @@ function login() {
             <Customform />
           </li>
           <li className="justify-end flex mt-10 align-middle gap-2 text-black">
-            don't have account?{" "}
-            <a className="text-info cursor-pointer" href={Url.student_register}>
-              register
+            have account?{" "}
+            <a className="text-info cursor-pointer" href={Url.login}>
+              login
             </a>
           </li>
         </ul>

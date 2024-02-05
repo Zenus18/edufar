@@ -1,3 +1,5 @@
+import Url from "@/constant/constant_url";
+
 const { default: Api } = require("@/utils/api");
 const { default: api } = require("@/utils/axios");
 const { default: StorageProvider } = require("@/utils/storage");
@@ -17,6 +19,20 @@ class AuthController {
       }
     } catch (e) {
       console.log(e.message);
+    }
+  }
+  static handleLogout() {
+    try {
+      if (
+        localStorage.getItem("access_token") != null &&
+        localStorage.getItem("token_type") != null
+      ) {
+        localStorage.removeItem("access_token");
+        localStorage.removeItem("token_type");
+      }
+      window.location.href = "/"; // Ganti URL dengan URL halaman login Anda
+    } catch (error) {
+      console.error(error);
     }
   }
 }

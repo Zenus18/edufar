@@ -2,6 +2,7 @@ import Api from "@/utils/api";
 import NetworkApi from "@/utils/axios";
 import { useState, useEffect } from "react";
 import { Axios } from "axios";
+import StudentPagesMiddleware from "@/middleware/student_pages_middleware";
 
 function Home() {
   const [Data, setData] = useState([]);
@@ -32,4 +33,4 @@ function Home() {
     </div>
   );
 }
-export default Home;
+export default StudentPagesMiddleware(Home);

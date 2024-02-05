@@ -7,5 +7,6 @@ class Url {
   static admin_setting = `/admin/settings`; //berisi crud untuk category
   static admin_home = `/admin/home`;
   static login = "/auth/login";
+  static student_register = "/auth/register";
 }
 export default Url;
