@@ -8,6 +8,7 @@ const token_type = "Bearer";
 
 const NetworkApi = axios.create({
   headers: {
+    "Content-Type": "multipart/form-data",
     Authorization:
       token_type && access_token ? `${token_type} ${access_token}` : "",
   },

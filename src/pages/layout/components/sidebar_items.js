@@ -1,4 +1,5 @@
 import AdminNavigateList from "../admin_navigate_list";
+import AuthController from "@/controller/auth_controller";
 export default function SidebarItems() {
   return (
     <>

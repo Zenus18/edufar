@@ -6,6 +6,10 @@ export default function RegisterForm() {
   const route = useRouter();
   const [postData, setpostData] = useState({
     username: "",
+    fullname: "",
+    phone: "",
+    address: "",
+    profileImage: null,
     password: "",
   });
   const [TypePassword, setTypePassword] = useState(true);
@@ -74,12 +78,17 @@ export default function RegisterForm() {
     }
     setTypePassword(!TypePassword);
   }
-
+  const handleImageChange = (e) => {
+    const newdata = { ...postData };
+    newdata[e.target.id] = e.target.files[0];
+    setpostData(newdata);
+  };
   const onChangeHandler = (e) => {
     const newdata = { ...postData };
     newdata[e.target.id] = e.target.value;
     setpostData(newdata);
   };
+
   return (
     <div className="form-control w-full text-black ">
       <label className="label">
@@ -91,6 +100,46 @@ export default function RegisterForm() {
         id="username"
         onChange={(e) => onChangeHandler(e)}
         className="input input-bordered w-full focus:outline-none rounded-md border-gray-300 focus:border-gray-300 bg-white"
+      />
+      <label className="label">
+        <span className="label-text">Full Name</span>
+      </label>
+      <input
+        type="text"
+        placeholder="Full Name"
+        id="fullname"
+        onChange={(e) => onChangeHandler(e)}
+        className="input input-bordered w-full focus:outline-none rounded-md border-gray-300 focus:border-gray-300 bg-white"
+      />
+      <label className="label">
+        <span className="label-text">Phone Number</span>
+      </label>
+      <input
+        type="tel"
+        placeholder="Phone Number"
+        id="phone"
+        onChange={(e) => onChangeHandler(e)}
+        className="input input-bordered w-full focus:outline-none rounded-md border-gray-300 focus:border-gray-300 bg-white"
+      />
+      <label className="label">
+        <span className="label-text">Classroom Name</span>
+      </label>
+      <input
+        type="text"
+        placeholder="Classroom Name"
+        id="address"
+        onChange={(e) => onChangeHandler(e)}
+        className="input input-bordered w-full focus:outline-none rounded-md border-gray-300 focus:border-gray-300 bg-white"
+      />
+      <label className="label">
+        <span className="label-text">Profile Image</span>
+      </label>
+      <input
+        type="file"
+        placeholder="masukkan foto anda"
+        id="profileImage"
+        onChange={(e) => handleImageChange(e)}
+        className="file-input w-full max-w-xs"
       />
       <label className="label">
         <span className="label-text">Password</span>
@@ -111,7 +160,7 @@ export default function RegisterForm() {
         <button
           className="btn bg-info text-lime-50 hover:bg-info w-full rounded-md h-min max-h-min min-h-10"
           onClick={() => {
-            AuthController.login(postData);
+            AuthController.StudentRegister(postData);
           }}
         >
           Sign In

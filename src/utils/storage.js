@@ -17,7 +17,10 @@ export default class StorageProvider {
   }
 
   static isAuthenticated() {
-    return localStorage.getItem("access_token") != null;
+    return (
+      localStorage.getItem("access_token") != null &&
+      localStorage.getItem("access_token") != ""
+    );
   }
 
   static clearAuthTokens() {

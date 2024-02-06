@@ -7,6 +7,11 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <style>
+          {`::-webkit-scrollbar {
+  display: none;
+}`}
+        </style>
       </body>
     </Html>
   );

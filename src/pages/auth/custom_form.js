@@ -110,8 +110,8 @@ export default function Customform() {
       <div className="w-28 self-center mt-8">
         <button
           className="btn bg-info text-lime-50 hover:bg-info w-full rounded-md h-min max-h-min min-h-10"
-          onClick={() => {
-            AuthController.login(postData);
+          onClick={async () => {
+            await AuthController.login(postData);
           }}
         >
           Sign In
