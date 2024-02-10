@@ -97,9 +97,9 @@ function AdminNavigateList() {
           href={item.link}
           className={`flex gap-2 justify-start btn ${
             path == item.link
-              ? "btn-info text-white"
+              ? "bg-[#3A606E] text-white "
               : "bg-white outline-none text-black"
-          } shadow-sm shadow-gray-500 transition-transform `}
+          }  transition-transform `}
         >
           <span className="flex-shrink flex">{item.icon}</span>
           <span className="flex flex-auto justify-center">{item.name}</span>

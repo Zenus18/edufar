@@ -163,7 +163,7 @@ export default function RegisterForm() {
             AuthController.StudentRegister(postData);
           }}
         >
-          Sign In
+          Sign Up
         </button>
       </div>
     </div>

@@ -7,7 +7,8 @@ export default class StorageProvider {
     localStorage.setItem(key, value);
   }
   static getItem(key) {
-    return localStorage.getItem(key);
+    const value = localStorage.getItem(key);
+    return value;
   }
   static setAuthTokens(access_token, token_type) {
     this.access_token = access_token;

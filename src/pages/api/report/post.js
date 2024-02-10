@@ -59,6 +59,7 @@ const handler = async (req, res) => {
             id: true,
             address: true,
             username: true,
+            profileImage: true,
             phone: true,
             fullname: true,
           },

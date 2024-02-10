@@ -1,7 +1,8 @@
 import Url from "@/constant/constant_url";
+import register from "@/pages/api/admin/register";
 
 const { default: Api } = require("@/utils/api");
-const { default: api } = require("@/utils/axios");
+const { default: api, default: NetworkApi } = require("@/utils/axios");
 const { default: StorageProvider } = require("@/utils/storage");
 
 class AuthController {
@@ -10,7 +11,7 @@ class AuthController {
       const formData = new FormData();
       formData.append("username", postData.username);
       formData.append("password", postData.password);
-      const response = await api.post(Api.LOGIN_URL, formData);
+      const response = await NetworkApi.post(Api.LOGIN_URL, formData);
       const { access_token, token_type, role } = response.data;
       if (access_token && token_type) {
         StorageProvider.setAuthTokens(access_token, token_type);
@@ -40,7 +41,7 @@ class AuthController {
       console.error(error);
     }
   }
-  static StudentRegister(userData) {
+  static async StudentRegister(userData) {
     const formData = new FormData();
     formData.append("username", userData.username);
     formData.append("fullname", userData.fullname);
@@ -48,7 +49,11 @@ class AuthController {
     formData.append("address", userData.address);
     formData.append("profileImage", userData.profileImage);
     formData.append("password", userData.password);
-    console.log(userData);
+    const response = await NetworkApi.post(Api.STUDENT_REGISTER_URL, formData);
+    if (response.status == 201) {
+      console.log("register successful");
+      window.location.href = Url.login;
+    }
   }
 }
 export default AuthController;

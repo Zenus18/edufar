@@ -1,6 +1,5 @@
 import Url from "@/constant/constant_url";
-import Customform from "./custom_form";
-import Arrow_right from "@/icon/arrow-right";
+import Customform from "@/components/custom_form";
 function login() {
   return (
     <div className={`h-screen grid bg-base-200  justify-start`}>

@@ -1,8 +1,6 @@
 import Url from "@/constant/constant_url";
-import Customform from "./custom_form";
-import Arrow_right from "@/icon/arrow-right";
-import RegisterForm from "./register_form";
-function login() {
+import RegisterForm from "@/components/register_form";
+function register() {
   return (
     <div className={`h-screen grid bg-base-200  justify-start`}>
       <div className="md:h-[28rem] md:w-[28rem] h-[22rem] w-[22rem]  bg-white shadow-md rounded-xl shadow-gray-300  p-5 mx-auto  absolute  mt-auto mb-auto top-[50%] left-[50%]  translate-x-[-50%] translate-y-[-50%]">
@@ -22,4 +20,4 @@ function login() {
     </div>
   );
 }
-export default login;
+export default register;

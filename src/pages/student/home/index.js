@@ -1,8 +1,7 @@
-import Api from "@/utils/api";
 import NetworkApi from "@/utils/axios";
 import { useState, useEffect } from "react";
-import { Axios } from "axios";
 import StudentPagesMiddleware from "@/middleware/student_pages_middleware";
+import AuthController from "@/controller/auth_controller";
 
 function Home() {
   const [Data, setData] = useState([]);
@@ -17,20 +16,12 @@ function Home() {
       });
   }, []);
   return (
-    <div>
-      <ul>
-        {Data.map((cat) => {
-          return (
-            <div>
-              <h1>student home</h1>
-              <li className="my-1" key={cat.id}>
-                {cat.category_name}
-              </li>
-            </div>
-          );
-        })}
-      </ul>
-    </div>
+    <button
+      className="btn btn-circle btn-info"
+      onClick={AuthController.handleLogout}
+    >
+      logout
+    </button>
   );
 }
 export default StudentPagesMiddleware(Home);
